@@ -8,7 +8,10 @@ builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 #region Connection
-builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("myconn"),b=>b.MigrationsAssembly(typeof(ApplicationDBContext).Assembly.FullName)));
+builder.Services.AddInfrastructureServices(builder.Configuration); // Infrastructure layer services
+
+//builder.Services.AddDbContext<ApplicationDBContext>(options => options
+//                .UseSqlServer(builder.Configuration.GetConnectionString("")));
 #endregion
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
