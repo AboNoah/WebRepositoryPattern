@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RepositoryPatternWithUnitOfWork.Core.Domain;
+using RepositoryPatternWithUnitOfWork.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace RepositoryPatternWithUnitOfWork.EF.DA
 {
-    public class ApplicationDBContext:DbContext
+    public class ApplicationDBContext : DbContext
     {
-        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options):base(options)
+    
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) 
+            : base(options)
         {
 
         }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
